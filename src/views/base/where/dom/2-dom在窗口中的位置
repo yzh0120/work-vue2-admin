@@ -1,3 +1,0 @@
-const { top, left, bottom, right } = this.$refs.lead.getBoundingClientRect();
-
-永远相对于 窗口
