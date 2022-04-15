@@ -34,7 +34,7 @@ export default {
   computed: {
     xxx: {
       get() {
-        if (type(this.data[this.item.field]) != "arr") {
+        if (this.$fn.type(this.data[this.item.field]) != "arr") {
           this.$set(this.data, this.item.field, []);
         }
         return this.data[this.item.field];
