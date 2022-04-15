@@ -58,13 +58,13 @@ export default {
   methods: {
     change(nowValue) {
       this.$emit("baseFormEvent", {
-        event: "select",
+        name: "select",
         value: nowValue,
       });
     },
     setValueNull(nowValue) {
       this.$emit("baseFormEvent", {
-        event: "clear",
+        name: "clear",
         value: nowValue,
       });
     },

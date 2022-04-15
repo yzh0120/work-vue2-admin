@@ -8,13 +8,20 @@
   filter:函数                                过滤函数
   -->
 <template>
-  <el-autocomplete v-model="data[item.field]" :type="item.type" :disabled="item.disabled" :placeholder="_getPlaceholder(item)" 
-  :fetch-suggestions="item.filter" clearable @select="handleSelect" style="width: 100%;" :value-key="item.key"/>
-  
+  <el-autocomplete
+    v-model="data[item.field]"
+    :type="item.type"
+    :disabled="item.disabled"
+    :placeholder="_getPlaceholder(item)"
+    :fetch-suggestions="item.filter"
+    clearable
+    @select="handleSelect"
+    style="width: 100%"
+    :value-key="item.key"
+  />
 </template>
 
 <script>
-
 export default {
   props: ["data", "item"],
   data() {
@@ -22,16 +29,14 @@ export default {
   },
   methods: {
     focus() {},
-	handleSelect(nowValue){
-		this.$emit("baseFormEvent", {
-		  event: "auto",
-		  value: nowValue
-		});
-	}
+    handleSelect(nowValue) {
+      this.$emit("baseFormEvent", {
+        name: "auto",
+        value: nowValue,
+      });
+    },
   },
-  computed: {
-
-  },
+  computed: {},
 };
 </script>
 

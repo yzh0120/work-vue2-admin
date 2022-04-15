@@ -20,7 +20,7 @@
     :disabled="item.disabled"
     :placeholder="_getPlaceholder(item)"
     @change="change"
-	@input="$forceUpdate()"
+    @input="$forceUpdate()"
     start-placeholder="开始日期"
     range-separator="至"
     end-placeholder="结束日期"
@@ -61,7 +61,7 @@ export default {
   methods: {
     change(nowValue) {
       this.$emit("baseFormEvent", {
-        event: "date",
+        name: "date",
         value: nowValue,
       });
     },

@@ -14,10 +14,10 @@
       :type="item.type"
       :disabled="item.disabled"
       placeholder="最小值"
-      @clear="setValueNull(`clear0`)"
-      @blur="blur(data[item.field], 'blur0')"
-      @focus="focus(data[item.field], 'focus0')"
-      @input="input(data[item.field], 'input0')"
+      @clear="setValueNull(`clear1`)"
+      @blur="blur(data[item.field], 'blur1')"
+      @focus="focus(data[item.field], 'focus1')"
+      @input="input(data[item.field], 'input1')"
       clearable
       :maxlength="item.max"
     ></el-input>
@@ -27,10 +27,10 @@
       :type="item.type"
       :disabled="item.disabled"
       placeholder="最大值"
-      @clear="setValueNull(`clear1`)"
-      @blur="blur(data[item.field], 'blur1')"
-      @focus="focus(data[item.field], 'focus1')"
-      @input="input(data[item.field], 'input1')"
+      @clear="setValueNull(`clear2`)"
+      @blur="blur(data[item.field], 'blur2')"
+      @focus="focus(data[item.field], 'focus2')"
+      @input="input(data[item.field], 'input2')"
       clearable
       :maxlength="item.max"
     ></el-input>
@@ -59,26 +59,26 @@ export default {
   methods: {
     blur(value, event) {
       this.$emit("baseFormEvent", {
-        event: event,
+        name: event,
         value: value,
       });
     },
     focus(value, event) {
       this.$emit("baseFormEvent", {
-        event: event,
+        name: event,
         value: value,
       });
     },
     input(value, event) {
       this.$emit("baseFormEvent", {
-        event: event,
+        name: event,
         value: value,
       });
     },
     setValueNull(event) {
       //nowValue:
       this.$emit("baseFormEvent", {
-        event: event,
+        name: event,
         value: undefined,
       });
     },
@@ -91,13 +91,28 @@ export default {
           (this.$fn.type(this.data[this.item.field]) == "arr" &&
             this.data[this.item.field].length != 2)
         ) {
-          this.data[this.item.field] = ["", ""];
+          // this.data[this.item.field] = ["", ""];
+          this.$set(this.data, this.item.field, ["", ""]);
         }
         return this.data[this.item.field];
       },
       set(val) {
-        this.data[this.item.field] = val;
+        // this.data[this.item.field] = val;
+        this.$set(this.data, this.item.field, val);
       },
+      // get() {
+      //   if (
+      //     this.$fn.type(this.data[this.item.field]) != "arr" ||
+      //     (this.$fn.type(this.data[this.item.field]) == "arr" &&
+      //       this.data[this.item.field].length != 2)
+      //   ) {
+      //     this.data[this.item.field] = ["", ""];
+      //   }
+      //   return this.data[this.item.field];
+      // },
+      // set(val) {
+      //   this.data[this.item.field] = val;
+      // },
     },
   },
   watch: {

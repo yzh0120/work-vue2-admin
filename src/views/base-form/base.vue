@@ -266,6 +266,7 @@ export default {
       cd(res);
     },
     event(e) {
+      console.log(e);
       if (e.item.field == "_input_btn") {
         if ((e.event = "btn")) {
           console.log(this.formData.data);

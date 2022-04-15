@@ -31,6 +31,22 @@ router.afterEach((to, from)=>{
 	store.state.router.elMainLoading = false
 })
 router.beforeEach(async (to, from, next) => {
+	// // 一直携带某个参数
+	// // if (to.query.souId) {
+	// // 	next();
+	// // 	return;
+	// //   };
+	// if (from.query.souId) {
+	// let toQuery = JSON.parse(JSON.stringify(to.query));
+	// toQuery.souId = from.query.souId;
+	// next({
+	// 	path: to.path,
+	// 	query: toQuery
+	// })
+	// } else {
+	// next();
+	// }
+	
 	store.state.router.elMainLoading = true
 	if (to.matched.length === 0) { //前往的路由不存在
 		//from.fullPath ? next({name: from.fullPath}) : next('/404'); //判断此跳转路由的来源路由是否存在，存在的情况跳转到来源路由，否则跳转到404页面

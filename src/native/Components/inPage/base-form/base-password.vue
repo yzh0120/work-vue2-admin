@@ -41,19 +41,19 @@ export default {
   methods: {
     blur(value) {
       this.$emit("baseFormEvent", {
-        event: "blur",
+        name: "blur",
         value: value,
       });
     },
     focus(value) {
       this.$emit("baseFormEvent", {
-        event: "focus",
+        name: "focus",
         value: value,
       });
     },
     setValueNull(nowValue) {
       this.$emit("baseFormEvent", {
-        event: "clear",
+        name: "clear",
         value: nowValue,
       });
     },

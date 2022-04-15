@@ -61,7 +61,7 @@ export default {
         //[]
         if (nowValue.length == 0) {
           this.$emit("baseFormEvent", {
-            event: "clear",
+            name: "clear",
             value: nowValue,
           });
         }
@@ -70,7 +70,7 @@ export default {
         if (!nowValue) {
           //因为一开始  赋值 null,所以一开始会执行一次
           this.$emit("baseFormEvent", {
-            event: "clear",
+            name: "clear",
             value: nowValue,
           });
         }
@@ -84,7 +84,7 @@ export default {
     change(nowValue) {
       console.log(this.xxx);
       this.$emit("baseFormEvent", {
-        event: "change",
+        name: "treeselect",
         value: nowValue,
       });
     },
@@ -112,20 +112,40 @@ export default {
       get() {
         if (this.item.mult) {
           if (this.$fn.type(this.data[this.item.field]) != "arr") {
-            this.data[this.item.field] = [];
+            // this.data[this.item.field] = [];
+            this.$set(this.data, this.item.field, []);
           }
         } else {
           if (this.data[this.item.field] == "") {
             //只是为了防止 值是""时  treeselect识别为null
 
-            this.data[this.item.field] = null;
+            // this.data[this.item.field] = null;
+            this.$set(this.data, this.item.field, null);
           }
         }
         return this.data[this.item.field];
       },
       set(val) {
-        this.data[this.item.field] = val;
+        // this.data[this.item.field] = val;
+        this.$set(this.data, this.item.field, val);
       },
+      // get() {
+      //   if (this.item.mult) {
+      //     if (this.$fn.type(this.data[this.item.field]) != "arr") {
+      //       this.data[this.item.field] = [];
+      //     }
+      //   } else {
+      //     if (this.data[this.item.field] == "") {
+      //       //只是为了防止 值是""时  treeselect识别为null
+
+      //       this.data[this.item.field] = null;
+      //     }
+      //   }
+      //   return this.data[this.item.field];
+      // },
+      // set(val) {
+      //   this.data[this.item.field] = val;
+      // },
     },
     options() {
       // console.log(this.getTreeSelectList(this.item.opt),"this.getTreeSelectList(this.item.opt)")

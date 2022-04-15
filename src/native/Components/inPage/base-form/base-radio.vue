@@ -10,40 +10,44 @@
  value:'bbb'                                opt对应的value
  -->
 <template>
-	<el-radio-group v-model="data[item.field]" @change="change">
-	    <el-radio :label="childItem[value]" v-for="(childItem,childIndex) in item.opt" :key="childIndex">{{childItem[text]}}</el-radio>
-	</el-radio-group>
-
+  <el-radio-group v-model="data[item.field]" @change="change">
+    <el-radio
+      :label="childItem[value]"
+      v-for="(childItem, childIndex) in item.opt"
+      :key="childIndex"
+      >{{ childItem[text] }}</el-radio
+    >
+  </el-radio-group>
 </template>
 
 <script>
-	export default{
-		props:["data","item"],
-		data(){
-			return {}
-		},
-		methods:{
-			change(e){
-				this.$emit("baseFormEvent",{event:'radio',value:e})
-			},
-		},
-		computed:{
-			text(){
-					  if(this.item.text){
-						  return this.item.text
-					  }else{
-						  return "text"
-					  }
-			},
-			value(){
-					  if(this.item.value){
-						  return this.item.value
-					  }else{
-						  return "value"
-					  }
-			}
-		}
-	}
+export default {
+  props: ["data", "item"],
+  data() {
+    return {};
+  },
+  methods: {
+    change(e) {
+      this.$emit("baseFormEvent", { name: "radio", value: e });
+    },
+  },
+  computed: {
+    text() {
+      if (this.item.text) {
+        return this.item.text;
+      } else {
+        return "text";
+      }
+    },
+    value() {
+      if (this.item.value) {
+        return this.item.value;
+      } else {
+        return "value";
+      }
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

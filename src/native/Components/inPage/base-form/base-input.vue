@@ -54,31 +54,31 @@ export default {
   methods: {
     blur(value) {
       this.$emit("baseFormEvent", {
-        event: "blur",
+        name: "blur",
         value: value,
       });
     },
     focus(value) {
       this.$emit("baseFormEvent", {
-        event: "focus",
+        name: "focus",
         value: value,
       });
     },
     search() {
       this.$emit("baseFormEvent", {
-        event: "btn",
+        name: "btn",
         value: null,
       });
     },
     input(value) {
       this.$emit("baseFormEvent", {
-        event: "input",
+        name: "input",
         value: value,
       });
     },
     setValueNull() {
       this.$emit("baseFormEvent", {
-        event: "clear",
+        name: "clear",
         value: undefined,
       });
     },

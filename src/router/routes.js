@@ -22,8 +22,8 @@ import icon from "./modules/icon.js"
 import menu from "./modules/menu.js"
 import otherTable from "./modules/otherTable.js"
 import tabs from "./modules/tabs.js"
-import system from "./modules/system.js"
-import party from "./modules/party.js"
+// import system from "./modules/system.js"
+// import party from "./modules/party.js"
 
 import {status} from "./modules/status.js"
 const routes = [
@@ -68,8 +68,8 @@ const routes = [
 	},
 	...status,//状态和登录页
 	
-	system,
-	party,
+	// system,
+	// party,
 
 	scoped,//用户权限
 	
