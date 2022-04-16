@@ -10,31 +10,31 @@
               height: 100%;//calc(100% - #{$sidebar-logo-container});  没有侧边栏
               overflow: hidden;
 			  
-			  position:relative;
+			        position:relative;
           }
-		  // .sidebar-container:after{
-		  // 		     content:"";
-		  // 		     position: absolute;
-		  // 			 display: block;
-		  // 		     right: 0px;
-		  // 		     top: 0px;
-		  // 		     width: 1px;
-		  // 		     height: 100%;
-		  // 		     background-color: #bbb;
-		  // 		     /* 如果不用 background-color, 使用 border-top:1px solid #e0e0e0; */
-		  // 		     -webkit-transform: scaleX(.5);
-		  // 		     transform:scaleX(.5);
-		  // }
+            // .sidebar-container:after{
+            // 		     content:"";
+            // 		     position: absolute;
+            // 			 display: block;
+            // 		     right: 0px;
+            // 		     top: 0px;
+            // 		     width: 1px;
+            // 		     height: 100%;
+            // 		     background-color: #bbb;
+            // 		     /* 如果不用 background-color, 使用 border-top:1px solid #e0e0e0; */
+            // 		     -webkit-transform: scaleX(.5);
+            // 		     transform:scaleX(.5);
+            // }
 
 
-        // 折叠时候的侧边栏的宽度
-        .isCollapse.sidebar-container{
-          width:$sideBarIsCollapseWidth !important;
-          // 折叠时候的 导航菜单的宽度
-          .el-menu--collapse.el-menu{
-            width: $menuIsCollapseWidth !important;
+          // 折叠时候的侧边栏的宽度
+          .isCollapse.sidebar-container{
+            width:$sideBarIsCollapseWidth !important;
+            // 折叠时候的 导航菜单的宽度
+            .el-menu--collapse.el-menu{
+              width: $menuIsCollapseWidth !important;
+            }
           }
-        }
 
 
         /*********************************************************************************************************
@@ -48,6 +48,7 @@
         //导航栏去除边框
         .el-menu{
           border: 0px ;
+          background-color: inherit;
         }
 
         //导航栏折叠时候 隐藏标题
@@ -85,10 +86,10 @@
           //导航栏展开的时候, title左边的图标的margin
           .titile-left-icon{
             margin-left: $titileLeftIcon;
-			width: 18px;
-			height: 18px;
-			font-size: 18px;
-			margin-right: 10px;
+            width: 18px;
+            height: 18px;
+            font-size: 18px;
+            margin-right: 10px;
           }
 
         /*********************************************************************************************************
@@ -103,10 +104,10 @@
               // height: 100% !important;
             }
           }
-		  //侧边栏的标题过长的时候 将x轴的滚动条的高度设置为0，el-scorll不是正常的滚动条，移除隐藏没有用
-		  .el-scrollbar__bar.is-horizontal{
-		    height: 0px !important;
-		  }
+		      //侧边栏的标题过长的时候 将x轴的滚动条的高度设置为0，el-scorll不是正常的滚动条，移除隐藏没有用
+          .el-scrollbar__bar.is-horizontal{
+            height: 0px !important;
+          }
           
         }
         
