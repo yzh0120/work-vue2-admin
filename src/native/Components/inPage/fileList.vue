@@ -2,7 +2,8 @@
   <div>
     <panel>
       <div slot="head">
-        <h4>资料文件信息</h4>
+        <!-- <h4>资料文件信息</h4> -->
+        资料文件信息
       </div>
       <table class="table row">
         <tbody>
@@ -11,7 +12,7 @@
             <td>详情</td>
             <td width="13%" v-if="showUploadBtn">操作</td>
           </tr>
-          <tr v-for="(item, index) in uploadList" :key="index">
+          <tr v-for="(item, index) in fileList" :key="index">
             <td>
               {{ item.name }}
               <span style="color: red" v-if="item.require">*</span>
@@ -72,7 +73,7 @@ export default {
       type: String,
       default: "",
     },
-    uploadList: {
+    fileList: {
       type: Array,
       default: () => {
         return [];
@@ -93,7 +94,7 @@ export default {
     check() {
       let checkOK = true;
       try {
-        this.$refs.uploadscanned.uploadList.forEach((item) => {
+        this.$refs.uploadscanned.fileList.forEach((item) => {
           if (item.required) {
             if (!item.detail[0]) {
               this.$message.error(`请上传${item.name}`);
@@ -136,7 +137,7 @@ export default {
             <td>详情</td>
             <td width="13%">操作</td>
           </tr>
-          <tr v-for="(item,index) in uploadList" :key="index">
+          <tr v-for="(item,index) in fileList" :key="index">
             <td>{{item.name}} <span style="color:red" v-if="item.require">*</span> </td>
             <td>
 			  <file-List :arr="item.detail" :del="true"/>
@@ -161,7 +162,7 @@ export default {
       type: String,
       default: "",
     },
-    uploadList: {
+    fileList: {
       type: Array,
       default: () => {
         return [];
@@ -185,7 +186,7 @@ export default {
   methods: {
 	 //获取文件
     getFiles() {
-      this.uploadList.forEach((item) => {
+      this.fileList.forEach((item) => {
         fileApi
           .getFileListByFolderId({
             folderId: this.projectId,
@@ -206,7 +207,7 @@ export default {
     upLoadSuccess(res,taskName) {
       if (res.code == 200) {
         this.$message.success(res.data.fileName + "上传成功！");
-        this.uploadList.forEach((item) => {
+        this.fileList.forEach((item) => {
           if (item.taskName == taskName) {
             fileApi
               .getFileListByFolderId({

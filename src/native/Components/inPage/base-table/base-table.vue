@@ -161,7 +161,7 @@ export default {
     select_fn(selection) {
       if (selection) {
         let obj = {
-          event: "checkbox",
+          name: "checkbox",
           value: selection,
         };
         this.$emit("event", obj);
@@ -171,7 +171,7 @@ export default {
     selectRowChange(currentRow, oldCurrentRow) {
       let obj = {
         event: "radio",
-        value: currentRow,
+        name: currentRow,
         oldValue: oldCurrentRow,
       };
       this.$emit("event", obj);
@@ -179,7 +179,7 @@ export default {
     //用于可展开表格
     expandEvent(row, expanded) {
       let obj = {
-        event: "expand",
+        name: "expand",
         value: row,
         flag: expanded,
       };
@@ -211,7 +211,7 @@ export default {
       return this.data.head;
     },
     selection() {
-      return this.data.selection;
+      return this.data.checkbox;
     },
     height() {
       return this.data.height ? this.data.height : "600px";

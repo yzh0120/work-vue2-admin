@@ -225,7 +225,7 @@ function realAxios(method, url, data = {}, other = {}) {
         }
         axios(obj).then(
             res => { //原生res 包括了header
-                toggleLoading(load, false, "over")
+                toggleLoading(load, false)
                
                 if (needSuccessCode &&  successCode != res.data.code) {//判断自定义code是否相同
                     Message({
@@ -246,7 +246,7 @@ function realAxios(method, url, data = {}, other = {}) {
             }
         ).catch(
             err => {
-                toggleLoading(load, false,"over")
+                toggleLoading(load, false)
                 reject(err)
             }
         )
@@ -270,13 +270,16 @@ let other ={
 }
 */
 // 某块区域的加载loading
-function toggleLoading(load, val,over) {
+function toggleLoading(load, val) {
+   
 	if(load && load.no){
 		return ;
-	}
+    }
     if (load && load.obj) {//例如table的loading
+        
         load.loading = load.loading ? load.loading : 'loading'
         load.obj[load.loading] = val
+       
     }else{//整块main区域加载
 	console.log(load.text,"load.text")
 		store.commit("axios/axiosLoading_Fn",

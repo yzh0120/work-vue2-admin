@@ -1,6 +1,12 @@
 let layout = () => import(/* webpackChunkName: "layout" */"@/layout/index.vue")
+let blank = () => import("@/views/blank.vue")//二级菜单专属
 
-// import confirm from "./modules/confirm.js"
+import baseForm from "./modules/1-base-form.js"
+import baseTable from "./modules/2-base-table.js"
+import otherTable from "./modules/3-other-table.js"
+import panel from "./modules/4-panel.js"
+import file from "./modules/5-file.js"
+import alert from "./modules/6-alert.js"
 
 import {status} from "./modules/status.js"
 const routes = [	
@@ -33,6 +39,14 @@ const routes = [
 			}
 		}]
 	},
+
+	baseForm,//表单
+	baseTable,//表格
+	otherTable,//其他表格
+	panel,//展开框
+	file,//文件
+	alert,//弹窗
+	
 	...status,//状态和登录页
 	
 

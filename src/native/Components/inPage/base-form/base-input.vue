@@ -67,7 +67,7 @@ export default {
     search() {
       this.$emit("baseFormEvent", {
         name: "btn",
-        value: null,
+        value: this.data[this.item.field],
       });
     },
     input(value) {
