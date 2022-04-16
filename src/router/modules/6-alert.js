@@ -7,8 +7,8 @@ export default {
     redirect: {name:"base-alert"},
     component:  layout,
     meta: {
-        title: '封装伸缩框',
-        icon: "wenjianshangchuan",
+        title: '弹窗',
+        icon: "program-code",
     },
     children: [
         {
@@ -17,7 +17,7 @@ export default {
             component: () => import(/* webpackChunkName: "alert-base" */ "@/views/6-alert/1-base-alert.vue"),
             meta: {
                 title: '基础弹窗',
-                icon: "wenjianshangchuan",
+                icon: "program-code",
             }
         },
         {
@@ -26,7 +26,7 @@ export default {
             component: () => import(/* webpackChunkName: "alert-msg" */ "@/views/6-alert/2-msg-list.vue"),
             meta: {
                 title: '消息弹窗',
-                icon: "wenjianshangchuan",
+                icon: "program-code",
             }
         },
     ]
