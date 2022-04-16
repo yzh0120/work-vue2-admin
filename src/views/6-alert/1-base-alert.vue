@@ -1,7 +1,7 @@
 <template>
   <div>
     <page>
-      <el-button @click="go">点我</el-button>
+      <el-button @click="add">点我</el-button>
       <alert :data="alertData" @event="alertEvent">
         <base-form :data="formAlert"></base-form>
       </alert>
@@ -30,7 +30,7 @@ export default {
     };
   },
   methods: {
-    go() {
+    add() {
       this.alertData.flag = true;
     },
     alertEvent(e) {

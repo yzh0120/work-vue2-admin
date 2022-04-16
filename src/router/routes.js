@@ -7,6 +7,10 @@ import otherTable from "./modules/3-other-table.js"
 import panel from "./modules/4-panel.js"
 import file from "./modules/5-file.js"
 import alert from "./modules/6-alert.js"
+import svgIcon from "./modules/7-svgIcon.js"
+import fastCopy from "./modules/8-fastCopy.js"
+import tagsView from "./modules/9-tagsView.js"
+import vCharts from "./modules/10-vCharts.js"
 
 import {status} from "./modules/status.js"
 const routes = [	
@@ -46,7 +50,11 @@ const routes = [
 	panel,//展开框
 	file,//文件
 	alert,//弹窗
-	
+	svgIcon,//svgIcon
+	fastCopy,//页面快速布局
+	tagsView,//标签页操作
+	vCharts,//图标
+
 	...status,//状态和登录页
 	
 

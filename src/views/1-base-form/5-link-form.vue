@@ -147,9 +147,9 @@ export default {
       handler(newVal) {
         //1 A 为特定值时，B 不显示；或 A 为特定值时，B 才显示。
         if (newVal._select == "1") {
-          this._set(this.form, "_input", { show: false });
+          this._setList(this.form, "_input", { show: false });
         } else {
-          this._set(this.form, "_input", { show: true });
+          this._setList(this.form, "_input", { show: true });
         }
 
         //2 A 为特定值时，B 只能为特定范围内的值 (或不能为某些值)  --- 多选框
@@ -158,7 +158,7 @@ export default {
           if (this.form.data._selecttiaojian == "2") {
             this.form.data._selecttiaojian = "";
           }
-          this._set(this.form, "_selecttiaojian", {
+          this._setList(this.form, "_selecttiaojian", {
             opt: [
               {
                 text: "特定范围",
@@ -167,7 +167,7 @@ export default {
             ],
           });
         } else {
-          this._set(this.form, "_selecttiaojian", {
+          this._setList(this.form, "_selecttiaojian", {
             opt: [
               { text: "特定范围", value: "1" },
               { text: "普通值2", value: "2" },
@@ -182,32 +182,32 @@ export default {
 
         //4 有条件的校验
         if (newVal._select == "1") {
-          this._set(this.form, "_inputRules", { rules: [] });
+          this._setList(this.form, "_inputRules", { rules: [] });
         } else {
           let _input2Arr = [
             { required: true, message: "请输入", trigger: "blur" },
             { validator: this.$check.demo, trigger: "blur" },
           ];
-          this._set(this.form, "_inputRules", { rules: _input2Arr });
+          this._setList(this.form, "_inputRules", { rules: _input2Arr });
         }
 
         //多选一
         if (this.form.data._input4 || this.form.data._input5) {
-          this._set(this.form, "_input3", { disabled: true });
+          this._setList(this.form, "_input3", { disabled: true });
         } else {
-          this._set(this.form, "_input3", { disabled: false });
+          this._setList(this.form, "_input3", { disabled: false });
         }
 
         if (this.form.data._input3 || this.form.data._input5) {
-          this._set(this.form, "_input4", { disabled: true });
+          this._setList(this.form, "_input4", { disabled: true });
         } else {
-          this._set(this.form, "_input4", { disabled: false });
+          this._setList(this.form, "_input4", { disabled: false });
         }
 
         if (this.form.data._input3 || this.form.data._input4) {
-          this._set(this.form, "_input5", { disabled: true });
+          this._setList(this.form, "_input5", { disabled: true });
         } else {
-          this._set(this.form, "_input5", { disabled: false });
+          this._setList(this.form, "_input5", { disabled: false });
         }
       },
       immediate: true,
