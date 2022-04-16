@@ -193,7 +193,7 @@ export default {
           {
             type: "auto",
             field: "_auto",
-            title: "自动补全",
+            title: "远程搜索",
             filter: self.auto_filter,
             key: "value1",
           },
