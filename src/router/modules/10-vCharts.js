@@ -262,7 +262,7 @@ export default {
 			},
 			meta: {
 				title: '饼图',
-				icon: 'e63a',
+				icon: "tubiao-zhexiantu",
 			},
 			children: [
 				{

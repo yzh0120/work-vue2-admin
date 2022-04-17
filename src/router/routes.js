@@ -11,6 +11,7 @@ import svgIcon from "./modules/7-svgIcon.js"
 import fastCopy from "./modules/8-fastCopy.js"
 import tagsView from "./modules/9-tagsView.js"
 import vCharts from "./modules/10-vCharts.js"
+import elementUi from "./modules/11-element-ui.js"
 
 import {status} from "./modules/status.js"
 const routes = [	
@@ -54,6 +55,7 @@ const routes = [
 	fastCopy,//页面快速布局
 	tagsView,//标签页操作
 	vCharts,//图标
+	elementUi,//elementUi
 
 	...status,//状态和登录页
 	
