@@ -28,6 +28,11 @@ export default {
             children: "subOptions",
             // labelWidth: "0px",
             rules: [{ required: true, message: "请输入", trigger: "blur" }],
+            // xs: 8, //<768px
+            // sm: 2, //≥768px
+            // md: 2, //≥992px
+            // lg: 24, //≥1200px
+            // xl: 24, //≥1920px
           },
           {
             type: "treeselect",

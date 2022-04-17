@@ -322,18 +322,73 @@ export default {
     },
     isRow() {
       if (this.data.isRow) {
-        let obj = {
-          xs: 24, //<768px
-          sm: 12, //≥768px
-          md: 12, //≥992px
-          lg: 8, //≥1200px
-          xl: 8, //≥1920px
-        };
         this.data.list.forEach((item) => {
-          item = Object.assign(item, obj, this.$fn.deepClone(item));
+          if (item.xs || item.sm || item.md || item.lg || item.xl) {
+            let obj = {
+              xs: undefined, //<768px
+              sm: undefined, //≥768px
+              md: undefined, //≥992px
+              lg: undefined, //≥1200px
+              xl: undefined, //≥1920px
+            };
+            this.data.list.forEach((item) => {
+              item = Object.assign(item, obj, this.$fn.deepClone(item));
+            });
+          } else {
+            let obj = {
+              xs: 24, //<768px
+              sm: 12, //≥768px
+              md: 12, //≥992px
+              lg: 8, //≥1200px
+              xl: 8, //≥1920px
+            };
+            item = Object.assign(item, obj);
+          }
         });
       }
       return this.data.isRow;
+
+      // if (this.data.isRow) {
+      //   let obj = {};
+      //   if (item.xs || item.sm || item.md || item.lg || item.xl) {
+      //     obj = {
+      //       xs: null, //<768px
+      //       sm: null, //≥768px
+      //       md: null, //≥992px
+      //       lg: null, //≥1200px
+      //       xl: null, //≥1920px
+      //     };
+      //     this.data.list.forEach((item) => {
+      //       item = Object.assign(item, obj, this.$fn.deepClone(item));
+      //     });
+      //   } else {
+      //     this.data.list.forEach((item) => {
+      //       obj = {
+      //         xs: 24, //<768px
+      //         sm: 12, //≥768px
+      //         md: 12, //≥992px
+      //         lg: 8, //≥1200px
+      //         xl: 8, //≥1920px
+      //       };
+      //       item = Object.assign(item, obj, this.$fn.deepClone(item));
+      //     });
+      //   }
+      // }
+      // return this.data.isRow;
+
+      // if (this.data.isRow) {
+      //   let obj = {
+      //     xs: 24, //<768px
+      //     sm: 12, //≥768px
+      //     md: 12, //≥992px
+      //     lg: 8, //≥1200px
+      //     xl: 8, //≥1920px
+      //   };
+      //   this.data.list.forEach((item) => {
+      //     item = Object.assign(item, obj, this.$fn.deepClone(item));
+      //   });
+      // }
+      // return this.data.isRow;
     },
     inline() {
       if (this.data.isRow || this.data.span) {
