@@ -66,7 +66,7 @@ $height: 40px;
     height: calc(100% - #{$height}) !important;
   }
   > .left {
-    // box-shadow: #ccc 0px 0px 10px;
+    box-shadow: $shadow 0px 0px 10px;
     border-radius: 6px;
     background-color: white;
     // width: $linkFixedPage_left_width;
@@ -112,7 +112,7 @@ $height: 40px;
   }
 
   > .right {
-    // box-shadow: #ccc 0px 0px 10px;
+    box-shadow: $shadow 0px 0px 10px;
     border-radius: 6px;
     background-color: white;
     border: 1px solid #d8dce5;

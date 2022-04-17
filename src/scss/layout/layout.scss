@@ -1,7 +1,4 @@
-
-
 /* 设置容器高度*************************************/
-
 
 .el-header {
     height: auto !important;
@@ -9,7 +6,8 @@
 }
 /*背景颜色 不重要**************************************/
 .el-main {
-    // background-color:$elMain;
+		font-size: 14px;
+		background-color: $elMainBgc;
 }
 .el-header {
 }
@@ -41,32 +39,4 @@
 		// }
 	}	
 	
-	// 普通页面
-	.page {//page
-	  min-height: calc(100% - calc(#{$normal_spacing} * 2));
-	  // margin: $normal_spacing calc(#{$normal_spacing} * 1.2);//margin: calc(#{$normal_spacing} / 1.5) $normal_spacing;
-	  background-color: white;
-	  padding:calc(#{$normal_spacing} / 1.5) $normal_spacing;
-	  overflow: auto; //内容溢出滚动
-	  // box-shadow: #ccc 0px 0px 10px;
-	  border-radius: 6px;
-	}
-	.page.show{
-		margin:0;
-		// background-color: $elMain;
-		// border-radius: 0px;
-		box-shadow: #ccc 0px 0px 0px !important; 
-	}
-
-	
-	//表格页面  作废了
-	// .table-page {
-	// 	height: calc(100% - #{$normal_spacing} - #{$normal_spacing});
-	// 	margin: $normal_spacing calc(#{$normal_spacing} * 1.2);;//margin: calc(#{$normal_spacing} / 1.5) $normal_spacing;
-	// 	background-color: white;
-	// 	padding:  0 calc(#{$normal_spacing} / 1.5) ;//calc(#{$normal_spacing} / 1.5) $normal_spacing;
-	// 	overflow: auto; //内容溢出隐藏
-	// 	// box-shadow: #ccc 0px 0px 10px;
-	// 	border-radius: 6px;
-	//   }
 }

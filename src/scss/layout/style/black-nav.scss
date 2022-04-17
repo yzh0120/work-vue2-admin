@@ -21,33 +21,33 @@
 		}
 	}
 	//main主体
-	.el-main{
-		$bgc : white;//rgb(248,248,248);
-		font-size: 14px;
-		background-color: $bgc;
-		.linkFixedPage{
-			background-color: $bgc;
-		}
-		#page.page.show{
-			background-color: $bgc;
-		}
-		$shadow:#ccc;
-		#page.page {
-			box-shadow: $shadow 0px 0px 10px;
-		}
-		.table-page{
-			box-shadow: $shadow 0px 0px 10px;
-		}
-		.linkFixedPage{
-			.left{
-				box-shadow: $shadow 0px 0px 10px;
-			}
-			.right{
-				box-shadow: $shadow 0px 0px 10px;
-			}
-		}
+	// .el-main{
+	// 	$bgc : white;//rgb(248,248,248);
+	// 	font-size: 14px;
+	// 	background-color: $bgc;
+	// 	.linkFixedPage{
+	// 		background-color: $bgc;
+	// 	}
+	// 	#page.page.show{
+	// 		background-color: $bgc;
+	// 	}
+	// 	$shadow:#ccc;
+	// 	#page.page {
+	// 		box-shadow: $shadow 0px 0px 10px;
+	// 	}
+	// 	.table-page{
+	// 		box-shadow: $shadow 0px 0px 10px;
+	// 	}
+	// 	.linkFixedPage{
+	// 		.left{
+	// 			box-shadow: $shadow 0px 0px 10px;
+	// 		}
+	// 		.right{
+	// 			box-shadow: $shadow 0px 0px 10px;
+	// 		}
+	// 	}
 		
-	}
+	// }
     
 	
 	.sidebar-container {

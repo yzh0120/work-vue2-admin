@@ -1,5 +1,5 @@
 <template>
-  <page show> 123 </page>
+  <navDetail>123</navDetail>
 </template>
 
 <script>

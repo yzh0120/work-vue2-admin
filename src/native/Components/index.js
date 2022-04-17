@@ -1,5 +1,5 @@
 import pageComponent from './base/page.vue'
-import tablePageComponent from './base/table-page.vue'
+// import tablePageComponent from './base/table-page.vue'
 import navTablePageComponent from './base/nav-table-page.vue'
 
 import basePagerComponent from './inPage/base-pager.vue' //分页
@@ -14,6 +14,13 @@ import fileListComponent from './inPage/fileList.vue' //detail
 import fileListShowComponent from './inPage/fileListShow.vue'//upload
 import oneFileComponent from './inPage/oneFile.vue'//upload
 import moneyInputComponent from './inPage/moneyInput.vue'//upload
+import navDetailComponent from './base/nav-detail.vue'//upload
+
+export const navDetail = {
+    install: function (Vue) {
+        Vue.component('navDetail', navDetailComponent)
+    }
+}
 
 export const moneyInput = {
     install: function (Vue) {
@@ -91,11 +98,11 @@ export const panel = {
 }
 // --------------------------------------------------------------------------------------
 
-export const tablePage = {
-    install: function (Vue) {
-        Vue.component('tablePage', tablePageComponent)
-    }
-}
+// export const tablePage = {
+//     install: function (Vue) {
+//         Vue.component('tablePage', tablePageComponent)
+//     }
+// }
 
 export const page = {
     install: function (Vue) {

@@ -28,17 +28,14 @@ $tags-view-container:calc(#{$tags-view-item + 10px});//34px;//6px  就是tagsvie
 $el-scrollbar__wrap:calc(#{$tags-view-item + 23px});
 
 
-
-
-$elMain :  #f8f8f8;//#E9EEF3;//框架内部背景 颜色
-
 $head-top-height:50px;//面包屑头部的height
 $mobile-top : calc(#{$sideBarIsCollapseWidth} + 30px);//moblie 的top
 
 
 $sidebar-logo-container:50px;  //logo高度
 
-
+$elMainBgc :  white;//#E9EEF3;//框架内部背景 颜色 #f8f8f8
+$shadow:#ccc;//page  nav link-page  navDetail 的背景
 
 :export {
 	head_top_height: $head-top-height;// 头部
