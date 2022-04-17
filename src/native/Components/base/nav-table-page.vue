@@ -1,5 +1,6 @@
 <template>
-  <div class="linkFixedPage">
+  <!-- .linkFixedPage -->
+  <div class="navTablePage" id="navTablePage">
     <div class="left" :style="{ width: widthComputed }">
       <div class="left-top titleText" v-if="leftTitle">{{ leftTitle }}</div>
 
@@ -40,7 +41,7 @@ export default {
 //标题
 $height: 40px;
 
-.linkFixedPage {
+.navTablePage {
   height: 100%;
   display: flex;
   background-color: transparent;
@@ -49,7 +50,7 @@ $height: 40px;
 
   height: calc(100% - #{$normal_spacing} - #{$normal_spacing});
   margin: $normal_spacing calc(#{$normal_spacing} * 1.2); //margin: calc(#{$normal_spacing} / 1.5) $normal_spacing;
-  background-color: white;
+  // background-color: white;
   //overflow: hidden; //内容溢出隐藏
   // box-shadow: #ccc 0px 0px 10px;
   border-radius: 6px;

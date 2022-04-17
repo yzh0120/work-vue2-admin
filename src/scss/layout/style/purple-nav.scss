@@ -19,6 +19,25 @@
 			}
 		}
 	}
+
+	//导航列表 navTablePage 的左边颜色
+	#navTablePage.navTablePage{
+		$left_main_item_bgc: #e8f4ff;
+		> .left {
+			> .left-main {
+				.left-item {
+					&:hover {
+						background-color: $left_main_item_bgc;
+						cursor: pointer;
+					  }
+					  &.active {
+						background-color: $left_main_item_bgc;
+						color: $primaryColor;
+					  }
+				}
+			}
+		}
+	}
 	//main主体
 	// .el-main{
 	// 	$bgc : white;//rgb(248,248,248);
