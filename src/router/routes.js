@@ -13,6 +13,7 @@ import tagsView from "./modules/9-tagsView.js"
 import vCharts from "./modules/10-vCharts.js"
 import elementUi from "./modules/11-element-ui.js"
 import print from "./modules/12-print.js"
+import base from "./modules/13-base.js"
 
 import {status} from "./modules/status.js"
 const routes = [	
@@ -58,6 +59,7 @@ const routes = [
 	vCharts,//图标
 	elementUi,//elementUi
 	print,//打印
+	base,//基础
 
 	...status,//状态和登录页
 	
