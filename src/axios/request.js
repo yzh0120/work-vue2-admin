@@ -1,10 +1,16 @@
 import axios from 'axios';
 import router from '@/router/index'; //路由 跳转
 import store from '@/vuex/store'; //vuex
-import { Message, MessageBox} from 'element-ui'; //ui提示
+import {
+    Message,
+    MessageBox
+} from 'element-ui'; //ui提示
 import * as Cookie from "@/tools/cookjs.js"
 // import forDelTemp from "@/tools/fn/forDelTemp.js";
-import { encrypt, decrypt } from '@/tools/aes.js';
+import {
+    encrypt,
+    decrypt
+} from '@/tools/aes.js';
 
 
 
@@ -57,7 +63,7 @@ axios.defaults.timeout = 120000; //超时时间
  */
 //http response 拦截器
 axios.interceptors.response.use(
-	
+
     res => { // 在2xx的范围       // res => res.status === 200 ? Promise.resolve(res) : Promise.reject(res),
         if (res.status === 200) { // 如果状态码是200  会执行.then的第一个函数
             return Promise.resolve(res)
@@ -76,32 +82,32 @@ axios.interceptors.response.use(
                     MessageBox.alert("未授权，请重新登录", "提示", {
                         confirmButtonText: '确定',
                         callback: action => {
-							store.commit("router/preUserId_fn", store.state.user.info.username);//保存上一个用户信息
-                            
-							
-							Cookie.remove("token");//1 重置token'
-							store.commit("user/info_fn", {//2 重置用户信息
-								username: '',
-								roleArr: []
-							});
-							store.state.router.routes = []//3 重置路由
-							store.commit("router/set_pageStack", [])//4 重置页面栈
-							router.push({//5 跳转登录页
-								path: "/login",
-							})
-							
-							//删除页面栈 缓存因为切换了layout和登录页面,所以自动清空了
-							//let delTemp = []
-							// let temp = store.state.router.pageStack.filter((item, index) => {
-							// 			if ( item.meta && item.meta.fixed ) {
-							// 			  return true;
-							// 			} else {
-							// 			  //delTemp.push(item)
-							// 			  return false;
-							// 			}
-							// });
-							// store.commit("router/set_pageStack", temp);
-							//forDelTemp(delTemp)
+                            store.commit("router/preUserId_fn", store.state.user.info.username); //保存上一个用户信息
+
+
+                            Cookie.remove("token"); //1 重置token'
+                            store.commit("user/info_fn", { //2 重置用户信息
+                                username: '',
+                                roleArr: []
+                            });
+                            store.state.router.routes = [] //3 重置路由
+                            store.commit("router/set_pageStack", []) //4 重置页面栈
+                            router.push({ //5 跳转登录页
+                                path: "/login",
+                            })
+
+                            //删除页面栈 缓存因为切换了layout和登录页面,所以自动清空了
+                            //let delTemp = []
+                            // let temp = store.state.router.pageStack.filter((item, index) => {
+                            // 			if ( item.meta && item.meta.fixed ) {
+                            // 			  return true;
+                            // 			} else {
+                            // 			  //delTemp.push(item)
+                            // 			  return false;
+                            // 			}
+                            // });
+                            // store.commit("router/set_pageStack", temp);
+                            //forDelTemp(delTemp)
                         }
                     })
                     break;
@@ -156,7 +162,7 @@ axios.interceptors.response.use(
 //具体的封装
 export async function get(url, data = {}, other = {}) {
     if (other.tip) { //有tip的请求 必须 有catch（）判断 err 是不是 cancel 
-	//MessageBox.confirm很奇怪 当点击了取消 这个提示直接中断代码 return cancel,所以后面不需要判断是cancel还收confirm'
+        //MessageBox.confirm很奇怪 当点击了取消 这个提示直接中断代码 return cancel,所以后面不需要判断是cancel还收confirm'
         await MessageBox.confirm("请再次确认此操作", "提示", {
             confirmButtonText: "确定",
             cancelButtonText: "取消",
@@ -172,7 +178,7 @@ export async function get(url, data = {}, other = {}) {
 
 export async function post(url, data = {}, other = {}) {
     if (other.tip) { //因为会触发catch，所以有tip的请求 必须判断 err 是不是 cancel ，
-	//MessageBox.confirm很奇怪 当点击了取消 这个提示直接中断代码 return cancel,所以后面不需要判断是cancel还收confirm'
+        //MessageBox.confirm很奇怪 当点击了取消 这个提示直接中断代码 return cancel,所以后面不需要判断是cancel还收confirm'
         await MessageBox.confirm('请再次确认此操作?', "提示", {
             confirmButtonText: "确定",
             cancelButtonText: "取消",
@@ -189,16 +195,20 @@ export async function post(url, data = {}, other = {}) {
 //最终的请求
 function realAxios(method, url, data = {}, other = {}) {
     let {
-        load={text:"加载中..."},//加载对象 , 每次都会使用这个对象 所以必须有默认值,默认的text 是 "正在加载中"
-        code = {},
-        params = {}
+        load = {
+                text: "加载中..."
+            }, //加载对象 , 每次都会使用这个对象 所以必须有默认值,默认的text 是 "正在加载中"
+            code = {},
+            params = {}
     } = other
-	let {successCode = 200, needSuccessCode = true } = code
+    let {
+        successCode = 200, needSuccessCode = true
+    } = code
     // 加载操作
     toggleLoading(load, true)
 
     let headers = {
-        "Authorization": Cookie.get("token") ? Cookie.get("token"):undefined,
+        "Authorization": Cookie.get("token") ? Cookie.get("token") : undefined,
         'Content-Type': "application/json; charset=utf-8"
     }
     let baseURL = process.env.VUE_APP_BASE_API
@@ -210,7 +220,7 @@ function realAxios(method, url, data = {}, other = {}) {
                 url: url, //路由
                 baseURL: baseURL, //基础路由
                 // data: { p: encrypt(JSON.stringify(data)) }, //参数
-                data:data,
+                data: data,
                 params: params, //参数
                 headers: headers //请求头部
             }
@@ -226,8 +236,8 @@ function realAxios(method, url, data = {}, other = {}) {
         axios(obj).then(
             res => { //原生res 包括了header
                 toggleLoading(load, false)
-               
-                if (needSuccessCode &&  successCode != res.data.code) {//判断自定义code是否相同
+
+                if (needSuccessCode && successCode != res.data.code) { //判断自定义code是否相同
                     Message({
                         message: res.data.info,
                         type: 'error',
@@ -237,17 +247,17 @@ function realAxios(method, url, data = {}, other = {}) {
                 } else {
                     // res.data.data = JSON.parse(decrypt(res.data.data))
                     if (other.headers) {
-                        resolve(res)//之所以不返回 res.data.data  是防止在页面中使用了res.data.!data
+                        resolve(res) //之所以不返回 res.data.data  是防止在页面中使用了res.data.!data
                     } else {
-                        resolve(res.data)//之所以不返回 res.data.data  是防止在页面中使用了res.data.!data
+                        resolve(res.data) //之所以不返回 res.data.data  是防止在页面中使用了res.data.!data
                     }
-					
-				}
+
+                }
             }
         ).catch(
             err => {
                 toggleLoading(load, false)
-                reject(err)
+                //  return Promise.reject(err)
             }
         )
     })
@@ -271,22 +281,20 @@ let other ={
 */
 // 某块区域的加载loading
 function toggleLoading(load, val) {
-   
-	if(load && load.no){
-		return ;
+
+    if (load && load.no) {
+        return;
     }
-    if (load && load.obj) {//例如table的loading
-        
+    if (load && load.obj) { //例如table的loading
+
         load.loading = load.loading ? load.loading : 'loading'
         load.obj[load.loading] = val
-       
-    }else{//整块main区域加载
-	console.log(load.text,"load.text")
-		store.commit("axios/axiosLoading_Fn",
-			{
-				loading:val,
-				text : load.text
-			}
-		)
-	}
+
+    } else { //整块main区域加载
+        console.log(load.text, "load.text")
+        store.commit("axios/axiosLoading_Fn", {
+            loading: val,
+            text: load.text
+        })
+    }
 }
